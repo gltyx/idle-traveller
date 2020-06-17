@@ -154,8 +154,14 @@ var cnPrefix = {
     'Hitch-hiking': '搭便车',
     'Motorcycle': '摩托车',
     'Canoe': '独木舟',
+    'Submarine': '潜艇',
+    'Sports car': '跑车',
     'Jet-pack': '单人飞行器',
     'Car': '汽车',
+    'Train': '火车',
+    'Helicopter': '直升机',
+    'Ship': '轮船',
+    'High-speed train': '高铁',
     'Rest': '休息',
     ' for the first time ': '1次',
     ' for the tenth time ': '10次',
@@ -203,6 +209,7 @@ var cnExcludeWhole = [
     /^(.+) m$/, //纯空格
     /^([\d\.]+) km$/, //纯空格
     /^([\d\.]+) Mm$/, //纯空格
+    /^ \| (.+) Mm$/, //纯空格
     /^ \| (.+) km$/, //纯空格
     /^ \| (.+) m$/, //纯空格
     /^\d+(\.\d+)?[A-Za-z]{0,2}.?\(?([+\-]?(\d+(\.\d+)?[A-Za-z]{0,2})?)?$/, //12.34M (+34.34K
