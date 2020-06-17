@@ -6,49 +6,49 @@ Shop.learnings = {
 	'basicmath': {
 		'name': 'Basic Math',
 		'multiplierIncrement': .5,
-		'cost': '00:30:00',
+		'cost': '00:10:00',
 		'shortName': '+'
 	},
 	'appliedmathematics': {
 		'name': 'Applied mathematics',
 		'multiplierIncrement': .5,
-		'cost': '00:45:00',
+		'cost': '00:15:00',
 		'shortName': '∑'
 	},
 	'advancedmathematics': {
 		'name': 'Advanced Mathematics',
 		'multiplierIncrement': 1,
-		'cost': '01:00:00',
+		'cost': '00:20:00',
 		'shortName': '⨋'
 	},
 	'advancedmathematicsii': {
 		'name': 'Advanced Mathematics II',
 		'multiplierIncrement': 1,
-		'cost': '01:30:00',
+		'cost': '00:30:00',
 		'shortName': '∰'
 	},
 	'commutativealgebra': {
 		'name': 'Commutative algebra',
 		'multiplierIncrement': 1.3,
-		'cost': '02:00:00',
+		'cost': '00:40:00',
 		'shortName': '∈'
 	},
 	'calculusofvariations': {
 		'name': 'Calculus of variations',
 		'multiplierIncrement': 1.3,
-		'cost': '02:00:00',
+		'cost': '00:50:00',
 		'shortName': 'Φ'
 	},
 	'ergodictheory': {
 		'name': 'Ergodic theory',
 		'multiplierIncrement': 2,
-		'cost': '02:30:00',
+		'cost': '01:15:00',
 		'shortName': 'ψ'
 	},
 	'probabilitytheory': {
 		'name': 'Probability theory',
 		'multiplierIncrement': 2.3,
-		'cost': '02:30:00',
+		'cost': '01:30:00',
 		'shortName': 'Ω'
 	},
 	'statistics': {
@@ -60,41 +60,47 @@ Shop.learnings = {
 	'fluidmechanics': {
 		'name': 'Fluid mechanics',
 		'multiplierIncrement': 2,
-		'cost': '03:00:00',
+		'cost': '02:40:00',
 		'shortName': '∇'
 	},
 	'theoryofrelativity': {
 		'name': 'Theory of relativity',
 		'multiplierIncrement': 3,
-		'cost': '03:45:00',
+		'cost': '03:15:00',
 		'shortName': 'E = mc²'
 	},
 }
 
 Shop.perks = {
+	'littleboosts': {
+		'name': 'Little Boosts',
+		'description': 'Smaller boosts but more of them',
+		'cost': '00:30:00',
+		'activationCost': '00:01:00'
+	},
 	'aerodynamics': {
 		'name': 'Aerodynamics',
 		'description': 'Increases the current speed (35%) but deactivates the boost bar',
-		'cost': '06:00:00',
-		'activationCost': '00:30:00'
+		'cost': '00:30:00',
+		'activationCost': '00:05:00'
 	},
 	'autopilot': {
 		'name': 'Autopilot',
 		'description': 'Reduces current speed (50%) but you keep travelling (at 15% of the current speed) while the game is closed',
-		'cost': '12:00:00',
-		'activationCost': '00:30:00'
+		'cost': '01:00:00',
+		'activationCost': '00:10:00'
 	},
 	'autoturbo': {
 		'name': 'Autoturbo',
 		'description': 'Automatic boosts but boostbar is filled 10% slower',
-		'cost': '03:30:00',
-		'activationCost': '00:15:00'
+		'cost': '00:30:00',
+		'activationCost': '00:05:00'
 	},
 	'soundsystem': {
 		'name': 'Sound system',
 		'description': 'Boostbar sounds when full',
-		'cost': '00:45:00',
-		'activationCost': '00:05:00'
+		'cost': '00:08:00',
+		'activationCost': '00:01:00'
 	}
 }
 
@@ -102,7 +108,7 @@ Shop.addButtonData = function(button, item){
 	var cost = item.calcCost()
 	button.setAttribute('id', item.id)
 	button.className = 'btn btn-primary shop-learning'
-	button.innerHTML = item.name + ' | ' + Core.formatLength(cost)
+	button.innerHTML = item.name + ' | ' + Core.formatLength(cost) + '<small class="learning-ttc">Travel time cost: ' + item.cost + '</small><small class="learning-description">Multiplier +' + item.multiplierIncrement + '</small>'
 	button.setAttribute('data-cost', cost)
 	button.title = 'Multiplier +' + item.multiplierIncrement + ' | Travel time cost: ' + item.cost
 	button.onclick = function(e){
@@ -119,9 +125,11 @@ Shop.addPerkButtonData = function(button, item){
 	var cost = item.calcCost()
 	button.setAttribute('id', item.id)
 	button.className = 'btn btn-primary shop-perk'
-	button.innerHTML = item.name + ' | ' + Core.formatLength(cost)
-	button.setAttribute('data-cost', cost)
 	button.title = item.description + ' | Travel time cost: ' + item.cost
+
+	button.innerHTML = item.name + ' | ' + Core.formatLength(cost) + '<small class="perk-ttc">(Travel time cost: ' + item.cost + ')</small><small class="perk-description">' + item.description + '</small>'
+
+	button.setAttribute('data-cost', cost)
 	button.onclick = function(e){
 		e.preventDefault()
 		if(Stats.totalLength < cost){
