@@ -72,8 +72,9 @@ var cnItems = {
     'Nope': '不',
     'resets all upgrades, learnings and your total distance.': '重置所有升级，学习和您的总距离。',
     'Last rest': '上次休息',
-    '': '',
-    '': '',
+    " | Multiplier +": " | 倍数 +",
+    '??? (multiplier +': '??? (倍数 +',
+    'ALL PROGRESS WILL BE LOST, are you sure?': '所有游戏进度都将丢失，您确定吗？',
     '': '',
     '': '',
     '': '',
@@ -134,6 +135,7 @@ var cnPrefix = {
     " ": " ",
     ": ": "： ",
     "\n": "",
+    "| ": "| ",
     "					": "",
     "Little Boosts": "小的助推",
     "Autoturbo": "自动涡轮",
@@ -161,6 +163,7 @@ var cnPrefix = {
     'Train': '火车',
     'Helicopter': '直升机',
     'Ship': '轮船',
+    'Applied mathematics': '应用数学',
     'High-speed train': '高铁',
     'Rest': '休息',
     ' for the first time ': '1次',
@@ -209,6 +212,8 @@ var cnExcludeWhole = [
     /^(.+) m$/, //纯空格
     /^([\d\.]+) km$/, //纯空格
     /^([\d\.]+) Mm$/, //纯空格
+    /^([\d\.]+) Gm$/, //纯空格
+    /^ \| (.+) Gm$/, //纯空格
     /^ \| (.+) Mm$/, //纯空格
     /^ \| (.+) km$/, //纯空格
     /^ \| (.+) m$/, //纯空格
