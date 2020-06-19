@@ -105,7 +105,7 @@ Core.updateHUD = function(){
 				.addClass('bg-primary')
 				.addClass('ready')
 				.attr('data-length', '提升！')
-			document.title = 'BOOST READY'
+			document.title = '提升已就绪'
 		}
 	}else{
 		$('#boostbar')
@@ -490,7 +490,7 @@ Core.boost = function(){
 	}
 	Stats.boostbarTimesFilled++
 	Core.updateHUD()
-	document.title = 'Idle Traveller'
+	document.title = '旅行者放置'
 	var sound = Core.get("#sound-system")
 	if(sound.getAttribute('played')){
 		sound.removeAttribute('played')

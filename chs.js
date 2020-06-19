@@ -265,6 +265,7 @@ var cnExcludePostfix = [
 //小数点：([\d\.]+)
 //原样输出的字段：(.+)
 var cnRegReplace = new Map([
+    [/^The savegame version (.+) is different than the current (.+)$/, '游戏存档版本 $1 和 当前版本不同 $2'],
     [/^x(.+) multiplier$/, 'x$1 倍'],
     [/^ \| Activation cost: (.+) Em$/, ' \| 激活成本: $1 Em'],
     [/^(.+) Pm\/s \((.+) Gm\/s$/, '$1 Pm\/秒 \($2 Gm\/秒'],
