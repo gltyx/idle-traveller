@@ -112,7 +112,7 @@ var cnItems = {
     'Take a break': '休息一下',
     'You need to travel more for it.': '你需要更多地旅行。',
     'You will get': '你会得到',
-    '': '',
+    ' (Active': ' (已激活',
     '': '',
     '': '',
     '': '',
@@ -141,6 +141,7 @@ var cnPrefix = {
     "\n": "",
     "| ": "| ",
     "					": "",
+    'You are going to activate perk "':'您将激活特权“',
     "Little Boosts": "小的助推",
     "Autoturbo": "自动涡轮",
     "Autopilot": "自动驾驶仪",
@@ -209,10 +210,12 @@ var cnPrefix = {
     "Achievement unlocked: ": "成就已解锁：",
     ' II': ' II',
     " | Multiplier +": " | 倍数 +",
+    ' (Active': ' (已激活',
 }
 
 //需处理的后缀
 var cnPostfix = {
+    '"':'”',
     ":": "：",
     "：": "：",
     ": ": "： ",
