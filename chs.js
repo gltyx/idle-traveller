@@ -113,7 +113,7 @@ var cnItems = {
     'You need to travel more for it.': '你需要更多地旅行。',
     'You will get': '你会得到',
     ' (Active': ' (已激活',
-    '': '',
+    'Increases the current speed (100%) but deactivates the boost bar': '增加当前速度 (100%) 但禁用加速条',
     '': '',
     '': '',
     '': '',
