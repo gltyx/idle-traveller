@@ -374,7 +374,7 @@ Core.addUpgrade = function(upgrade){
 }
 
 Core.calcNextUpgradeCost = function(){
-	Stats.nextUpgradeCost *= 2.7 + (Stats.upgrades.length / 100)
+	Stats.nextUpgradeCost *= 0.5 + ((Stats.upgrades.length / 100) + 1) + ((Stats.multiplier || 1) / 100)
 }
 
 Core.isArray = function(item){
@@ -465,9 +465,9 @@ Core.boost = function(){
 	Stats.totalLength += boost
 	Stats.boostbar = 0
 	if(Stats.activePerk === 'littleboosts'){
-		Stats.boostbarMax += boost * 1.5
+		Stats.boostbarMax += boost * 0.5
 	}else{
-		Stats.boostbarMax += boost * 3
+		Stats.boostbarMax += boost
 	}
 	Stats.boostbarTimesFilled++
 	Core.updateHUD()
