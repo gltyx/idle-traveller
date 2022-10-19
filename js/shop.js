@@ -105,6 +105,15 @@ Shop.perks = {
 }
 
 Shop.stuff = {
+	'stoneofknowledge': {
+		'icon': 'κ',
+		'label': 'Stone of Knowledge',
+		'description': 'Having this stone means all your study rewards are multiplied by 5',
+		'cost': 1000000000,
+		'effect': function(){
+			// Multiplies every study * 5
+		}
+	},
 	'braceletofspeed': {
 		'icon': '⍜',
 		'label': 'Bracelet of speed',
@@ -126,7 +135,7 @@ Shop.stuff = {
 	'purplestone': {
 		'icon': '⌬',
 		'label': 'Purple Stone',
-		'description': 'The stone to rule the space-time. It gives you the hability to rest without loosing your upgrades nor speed',
+		'description': 'The stone to rule the space-time. It gives you the ability to rest without losing your upgrades nor speed',
 		'cost': 9000000
 	},
 }
@@ -170,6 +179,9 @@ Shop.unlockLearning = function(){
 	Shop._nextLearningName.innerHTML = this.name
 	Shop._nextLearningCost.innerHTML = Core.formatLength(this.calcCost())
 	Shop._nextLearningIncrement.innerHTML = this.multiplierIncrement
+	if(Stats.stuff.includes('stoneofknowledge')){
+		Shop._nextLearningIncrement.innerHTML = this.multiplierIncrement * 5
+	}
 	Shop._learnings.appendChild(button)
 	Shop.showingLearning = { 'learning': this, 'element': button }
 }
@@ -252,7 +264,11 @@ Shop.buy = function(){
 	if(cost > Stats.totalLength || Shop.hasLearning(this.id)) return false
 	this.visible = false
 	Stats.totalLength -= cost
-	Stats.multiplier += this.multiplierIncrement || 0
+	if(Stats.stuff.includes('stoneofknowledge')){
+		Stats.multiplier += this.multiplierIncrement ? this.multiplierIncrement * 5 : 0
+	}else{
+		Stats.multiplier += this.multiplierIncrement || 0
+	}
 	this.learn()
 	this.show()
 	Shop.unlockNextLearning(this.id)
